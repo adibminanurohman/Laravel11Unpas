@@ -6,7 +6,14 @@
                 <h2 class="mb-1 text-3xl tracking-light font-bold text-gray-900">{{ $post['title'] }}</h2>
             </a>
             <div class="text-base text-gray-500 ">
-                <p><a href="/authors/{{ $post->author->id }}" class="hover:underline">{{ $post->author->name }} </a>| {{ \Carbon\Carbon::parse($post['created_at'])->diffForHumans() }}</p>
+                <div>
+                    <a href="/authors/{{ $post->author->username }}" class="hover:underline">{{ $post->author->name }}
+                    </a>
+                    <a href="/categories/{{ $post->category->slug }}" class="hover:underline text-base text-gray-500"> |
+                        {{ $post->category->name }}
+                    </a>
+                    | {{ \Carbon\Carbon::parse($post['created_at'])->diffForHumans() }}
+                </div>
             </div>
             <p class="my-4 font-light">{{ Str::limit($post['body'], 200) }}</p>
             <a href="/posts/{{ $post['slug'] }}" class="font-medium text-blue-500 hover:underline">Read more &raquo;</a>
