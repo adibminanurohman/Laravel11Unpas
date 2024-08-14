@@ -8,7 +8,7 @@
                 <input type="hidden" name="category" value="{{ request('category') }}">
                 @endif
                 @if (request('author'))
-                    <input type="hidden" name="author" value="{{ requset('author') }}">
+                    <input type="hidden" name="author" value="{{ request('author') }}">
                 @endif
                 <div class="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
                     <div class="relative w-full">
@@ -62,7 +62,7 @@
                         <img class="w-7 h-7 rounded-full"
                             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                             alt="Jese Leos avatar" />
-                        <a href="/posts?author/{{ $post->author->username }}" class="hover:underline">
+                        <a href="/posts?author={{ $post->author->username }}" class="hover:underline">
                             <span class="font-medium dark:text-white">{{ $post->author->name }}</span>
                         </a>
                         <a href="/posts/{{ $post['slug'] }}"
